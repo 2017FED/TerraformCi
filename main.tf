@@ -15,11 +15,13 @@ terraform {
   }
 }
 
+
 provider "azurerm" {
   features {
   }
   skip_provider_registration = true
 }
+
 
 resource "random_string" "uniquestring" {
   length  = 20
@@ -27,10 +29,12 @@ resource "random_string" "uniquestring" {
   upper   = false
 }
 
+
 resource "azurerm_resource_group" "rg" {
-  name     = "811-ed0c8ac9-provide-continuous-delivery-with-gith"
-  location = "West US"
+  name     = "811-c6273659-provide-continuous-delivery-with-gith"
+  location = "southcentralus"
 }
+
 
 resource "azurerm_storage_account" "storageaccount" {
   name                     = "stg${random_string.uniquestring.result}"
@@ -39,3 +43,4 @@ resource "azurerm_storage_account" "storageaccount" {
   account_tier             = "Standard"
   account_replication_type = "LRS"
 }
+
