@@ -6,7 +6,6 @@ terraform {
       version = "=3.43.0"
     }
   }
-
   cloud {
     organization = "ParminderSaini"
 
@@ -14,22 +13,25 @@ terraform {
       name = "TerraformCi"
     }
   }
-
 }
+
 provider "azurerm" {
   features {
   }
   skip_provider_registration = true
 }
+
 resource "random_string" "uniquestring" {
   length  = 20
   special = false
   upper   = false
 }
+
 resource "azurerm_resource_group" "rg" {
   name     = "811-ed0c8ac9-provide-continuous-delivery-with-gith"
   location = "West US"
 }
+
 resource "azurerm_storage_account" "storageaccount" {
   name                     = "stg${random_string.uniquestring.result}"
   location                 = azurerm_resource_group.rg.location
