@@ -21,10 +21,10 @@ provider "azurerm" {
   }
   skip_provider_registration = true
 }
-resource "random_string" "uniquestring"{
-    length = 20
-    special = false
-    upper = false
+resource "random_string" "uniquestring" {
+  length  = 20
+  special = false
+  upper   = false
 }
 resource "azurerm_resource_group" "rg" {
   name     = "811-ed0c8ac9-provide-continuous-delivery-with-gith"
